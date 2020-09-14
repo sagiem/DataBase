@@ -20,7 +20,7 @@ namespace WindowsFormsApp2
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (NameBoxAdd.Text != "" || ContractBoxAdd.Text != "")
+            if (string.IsNullOrWhiteSpace(NameBoxAdd.Text))
             {
                 using (var context = new AgentContext())
                 {
@@ -43,6 +43,15 @@ namespace WindowsFormsApp2
             {
                 MessageBox.Show("Не ведены данные");
             }
+
+            //using (var db = new AgentContext())
+            //{
+            //    var users = db.Agents;
+            //    foreach (Agent u in users)
+            //    {
+            //        Console.WriteLine("{0}.{1} - {2}", u.Name, u.Number, u.Data);
+            //    }
+            //}
         }
     }
 }
